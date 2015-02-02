@@ -94,4 +94,4 @@ end
 # i = IndeedScraper.new("keyword", "location (or nil if no location)")
 i = IndeedScraper.new("analytics", "")
 i.searchJobs
-puts i.getOutput
+# puts i.getOutput
