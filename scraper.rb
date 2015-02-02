@@ -31,6 +31,7 @@ count = fresult +1
 else
 count = numresults[1].to_i/10
 end
+
 # Loop through pages and get results
 i = 1
 while i <= count
@@ -58,6 +59,7 @@ end
 end
 end
 @output.push(jobhash)
+
 data={
 "jobtitle" => jobhash[:position],
 "employer" => jobhash[:company],
@@ -68,6 +70,7 @@ data={
 "id" => ident,
 "url"=> jobhash[:url],
 }
+# save to database
 ScraperWiki::save_sqlite(["id"], data)
 end
 # Get next page
@@ -89,6 +92,6 @@ end
 
 # Scrape Jobs-
 # i = IndeedScraper.new("keyword", "location (or nil if no location)")
-i = IndeedScraper.new("("analytics")", "")
+i = IndeedScraper.new("analytics", "")
 i.searchJobs
 puts i.getOutput
